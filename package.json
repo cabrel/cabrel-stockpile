@@ -4,7 +4,7 @@
   "description": "A set of utility functions for every day use",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive"
   },
   "repository": {
     "type": "git",
@@ -14,5 +14,13 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cabrel/cabrel-stockpile/issues"
+  },
+  "dependencies": {
+    "moment": "~2.1.0",
+    "lodash": "~1.3.1"
+  },
+  "devDependencies": {
+    "should": "~1.2.2",
+    "mocha": "~1.12.0"
   }
 }
