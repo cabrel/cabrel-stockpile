@@ -1,0 +1,18 @@
+{
+  "name": "cabrel-stockpile",
+  "version": "0.1.0",
+  "description": "A set of utility functions for every day use",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cabrel/cabrel-stockpile.git"
+  },
+  "author": "cabrel@zerklabs.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cabrel/cabrel-stockpile/issues"
+  }
+}
