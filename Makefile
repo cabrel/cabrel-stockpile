@@ -1,8 +1,11 @@
 test:
-	@node /usr/bin/mocha --recursive
-test-cov:
-	@node /usr/bin/mocha --recursive -R html-cov > coverage.html
-
-.PHONY: test test-cov
+				npm test
 
 
+coverage:
+				rm coverage.html
+				jscoverage lib lib-cov
+				LIB_COV=1 /usr/bin/mocha -R html-cov > coverage.html
+				rm -rf lib-cov
+
+.PHONY: test

@@ -1,6 +1,4 @@
-// third-party exports
-exports.lodash = require('lodash');
-exports.moment = require('moment');
+module.exports = process.env['LIB_COV']
+  ? require('./lib-cov/stockpile')
+  : require('./lib/stockpile');
 
-// local exports
-exports.log = require('./lib/log');

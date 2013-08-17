@@ -1,7 +1,8 @@
-var should = require('should');
-var _originalConsole = console.log;
+var should = require('should'),
+    stockpile = require('../'),
+    log = stockpile.log,
+    _originalConsole = console.log;
 
-var log = require('../../index').log;
 
 describe('log', function() {
   describe('#print', function() {
@@ -19,7 +20,7 @@ describe('log', function() {
     });
 
     it('should print test', function(done) {
-      log.print('test');
+      stockpile.log.print('test');
       _consoleOutput.length.should.equal(1);
       _consoleOutput[0][0].should.include('test');
 
@@ -31,7 +32,7 @@ describe('log', function() {
 
   describe('#logTimeFormat', function() {
     it('should be YYYY-MM-DD HH:mm:ss.SSSZZ', function(done) {
-      log.logTimeFormat.should.equal('YYYY-MM-DD HH:mm:ss.SSSZZ');
+      stockpile.log.logTimeFormat.should.equal('YYYY-MM-DD HH:mm:ss.SSSZZ');
 
       done();
     });

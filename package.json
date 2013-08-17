@@ -4,7 +4,8 @@
   "description": "A set of utility functions for every day use",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive"
+    "test": "mocha --recursive",
+    "blanket": { "pattern": "lib" }
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "should": "~1.2.2",
-    "mocha": "~1.12.0"
+    "mocha": "~1.12.0",
+    "blanket": "~1.1.5"
   }
 }
