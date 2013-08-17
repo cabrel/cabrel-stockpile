@@ -1,4 +1,1 @@
-module.exports = process.env['LIB_COV']
-  ? require('./lib-cov/stockpile')
-  : require('./lib/stockpile');
-
+module.exports = require('./lib/stockpile');
