@@ -1,40 +1,33 @@
-var should = require('should'),
+var expect = require('expect.js'),
     stockpile = require('../'),
     log = stockpile.log,
-    _originalConsole = console.log;
+    originalConsole = console.log;
 
 
 describe('log', function() {
   describe('#print', function() {
     var _consoleOutput = [];
 
-    beforeEach(function(done) {
+    beforeEach(function() {
       console.log = function() { _consoleOutput.push(_consoleOutput.slice.call(arguments)) };
-
-      done();
     });
 
-    afterEach(function(done) {
+    afterEach(function() {
       _consoleOutput = [];
-      done();
     });
 
-    it('should print test', function(done) {
+    it('should print test', function() {
       stockpile.log.print('test');
-      _consoleOutput.length.should.equal(1);
-      _consoleOutput[0][0].should.include('test');
+      expect(_consoleOutput.length).to.be(1);
+      expect(_consoleOutput[0][0]).to.contain('test');
 
-      console.log = _originalConsole;
-
-      done();
+      console.log = originalConsole;
     });
   });
 
   describe('#logTimeFormat', function() {
-    it('should be YYYY-MM-DD HH:mm:ss.SSSZZ', function(done) {
-      stockpile.log.logTimeFormat.should.equal('YYYY-MM-DD HH:mm:ss.SSSZZ');
-
-      done();
+    it('should be YYYY-MM-DD HH:mm:ss.SSSZZ', function() {
+      expect(stockpile.log.logTimeFormat).to.be('YYYY-MM-DD HH:mm:ss.SSSZZ');
     });
   });
 });

@@ -1,5 +1,4 @@
 --require blanket
---require should
 -R spec
 --ui bdd
 --slow 200
