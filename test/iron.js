@@ -1,6 +1,6 @@
 var expect = require('expect.js'),
     stockpile = require('../'),
-    iron = stockpile.iron,
+    iron = stockpile.crypto.iron,
     util = require('util');
 
 
@@ -37,29 +37,27 @@ describe('iron', function() {
 
     });
 
-
-    it('should return a promise if no callback given', function() {
-      expect(iron.seal({ a: 1 }, 'test123')).to.have.property('then');
-
-    });
-
-
-    it('should return a promise and resolve a string', function(done) {
-      iron.seal({ a: 1 }, 'test123').done(function(sealed) {
-        expect(sealed).to.contain('Fe26.1');
-        done();
-      }, function(error) {
-        expect(error).to.be(null);
-      });
-
-    });
-
-
     it('should return a nodejs callback if one is provided', function(done) {
       iron.seal({ a: 1 }, 'test123', function(err, result) {
         expect(err).to.be(null);
         expect(result).to.be.a('string');
         done();
+      });
+    });
+
+    describe('#Promise', function() {
+      it('should return a promise if no callback given', function() {
+        expect(iron.seal({ a: 1 }, 'test123')).to.have.property('then');
+
+      });
+
+      it('should resolve to a string', function(done) {
+        iron.seal({ a: 1 }, 'test123').done(function(sealed) {
+          expect(sealed).to.contain('Fe26.1');
+          done();
+        }, function(error) {
+          expect(error).to.be(null);
+        });
       });
     });
 
@@ -93,21 +91,6 @@ describe('iron', function() {
 
     });
 
-    it('should return a promise if no callback given', function() {
-      expect(iron.unseal('xyz', 'test123')).to.have.property('then');
-
-    });
-
-    it('should return a promise and resolve a javascript object', function(done) {
-      iron.seal({ a: 1 }, 'test123').then(function(sealed) {
-        return iron.unseal(sealed, 'test123');
-      }).then(function(unsealed) {
-        expect(unsealed).to.be.a('object');
-        expect(unsealed).to.have.key('a');
-      }).done(done);
-
-    });
-
     it('should return a nodejs callback if one is provided', function(done) {
       iron.seal({ a: 1 }, 'test123', function(err, sealed) {
         expect(err).to.be(null);
@@ -119,6 +102,21 @@ describe('iron', function() {
           done();
         });
 
+      });
+    });
+
+    describe('#Promise', function() {
+      it('should return a promise if no callback given', function() {
+        expect(iron.unseal('xyz', 'test123')).to.have.property('then');
+      });
+
+      it('should resolve to a javascript object', function(done) {
+        iron.seal({ a: 1 }, 'test123').then(function(sealed) {
+          return iron.unseal(sealed, 'test123');
+        }).then(function(unsealed) {
+          expect(unsealed).to.be.a('object');
+          expect(unsealed).to.have.key('a');
+        }).done(done);
       });
     });
   });
