@@ -10,6 +10,9 @@ A set of utility functions for everyday use
 
 * `log`
     * `print`
+* `RegExes`
+    * `Email Address`
+    * `ObjectID`
 
 
 ## Crypto
