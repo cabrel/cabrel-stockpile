@@ -54,3 +54,19 @@ all of the argument validation and preparation done already
           * Object:
               * `hash`
               * `salt`
+* `sha`
+  * `authenticate512(password, salt, hash)`
+      * Inputs
+          * `password` - Required
+          * `salt` - Required
+          * `hash` - Required
+      * Outputs
+          * Boolean
+  * `generate512(password, salt)`
+      * Inputs
+          * `password` - Required
+          * `salt` - Optional
+      * Outputs
+          * Object:
+              * `hash`
+              * `salt`
