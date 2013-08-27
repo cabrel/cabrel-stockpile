@@ -5,6 +5,8 @@ var expect = require('expect.js'),
 
 describe('sha', function() {
   describe('#generate512', function() {
+    var validsalt = '1d3eeac68c41fb3a5e3b05ffd7e936fdf2fde4f2e611a2ca7f472ab46c114e075c3f68420e6e3a55b141cb49c46385a54066aa3f4c7934bcf6bdeea298804efa';
+
     it('should return a promise', function() {
       expect(sha.generate512('abc', '123')).to.have.property('then');
     });
@@ -34,20 +36,33 @@ describe('sha', function() {
         expect(result.hash).to.be.a('string');
         expect(result).to.have.property('salt');
         expect(result.salt).to.be.a('string');
-
         done();
       });
     });
+
+    it('should return a valid hash', function(done) {
+      sha.generate512('abc123', validsalt).done(function(result) {
+        expect(result).to.be.a('object');
+        expect(result).to.have.property('hash');
+        expect(result.hash).to.be.a('string');
+        expect(result).to.have.property('salt');
+        expect(result.salt).to.be.a('string');
+        expect(result.salt).to.be(validsalt);
+        done();
+      });
+    });
+
   });
 
-  describe('#authenticate512', function() {
-    var validhash = '56431446c4285cb77bd57dc57666fe5e7a4536ff124ce38ef7db2e135c949cc4834e66ed180b63241a6a0d3c77ac6f1b6aa1e3c04c3bcf6f28d1c763cd688f7a';
+  describe('#authenticate512 - 10k iterations (Default)', function() {
+    var validhash = 'd7d6484f47454977af7282d2cfad7cf6e66f8aa708a3bd0c64121e6ff3145affb1da5d88b77d826e2b001642de1f2a372c68770d255317b8016e8e7d047587d7';
 
-    var invalidhash = '56431446c4285cb77bd57dc57666fe5e7a4536ff124ce38ef7db2e135c949cc4834e66ed180b63241a6a0d3c77ac6f1b6aa1e3c04c3bcf6f28d1c763cd688f7aa'; // added extra 'a'
+    var invalidhash = 'd7d6484f47454977af7282d2cfad7cf6e66f8aa708a3bd0c64121e6ff3145affb1da5d88b77d826e2b001642de1f2a372c68770d255317b8016e8e7d047587d7a'; // added 'a'
 
-    var validsalt = 'c6b46022275ea77ee45c685a1013905024035cc21a374cf0aa61d47d8926609d017f369cc8de4415a687a572357531f9bd1b3e01e097bf33408abff44966cd0f';
+    var validsalt = '1d3eeac68c41fb3a5e3b05ffd7e936fdf2fde4f2e611a2ca7f472ab46c114e075c3f68420e6e3a55b141cb49c46385a54066aa3f4c7934bcf6bdeea298804efa';
 
-    var invalidsalt = 'c6b46022275ea77ee45c685a1013905024035cc21a374cf0aa61d47d8926609d017f369cc8de4415a687a572357531f9bd1b3e01e097bf33408abff44966cd0fa'; // added 'a'
+    var invalidsalt = '1d3eeac68c41fb3a5e3b05ffd7e936fdf2fde4f2e611a2ca7f472ab46c114e075c3f68420e6e3a55b141cb49c46385a54066aa3f4c7934bcf6bdeea298804efaa'; // added 'a'
+
 
     it('should return a promise', function() {
       expect(sha.authenticate512('abc123', 'salt123', 'hash123')).to.have.property('then');
@@ -87,6 +102,5 @@ describe('sha', function() {
         done();
       });
     });
-
   });
 });
