@@ -1,6 +1,6 @@
 {
   "name": "cabrel-stockpile",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A set of utility functions for every day use",
   "main": "index.js",
   "scripts": {
@@ -20,12 +20,13 @@
     "url": "https://github.com/cabrel/cabrel-stockpile/issues"
   },
   "dependencies": {
-    "moment": "*",
-    "lodash": "*",
-    "iron": "*",
-    "q": "*",
     "async": "*",
     "bcrypt": "*",
+    "hapi": "1.x.x",
+    "iron": "*",
+    "lodash": "*",
+    "moment": "*",
+    "q": "*",
     "scrypt": "*"
   },
   "devDependencies": {
