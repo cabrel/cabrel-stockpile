@@ -1,13 +1,13 @@
 {
   "name": "cabrel-stockpile",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A set of utility functions for every day use",
   "main": "index.js",
   "scripts": {
     "test": "mocha --recursive",
     "blanket": {
       "pattern": "lib",
-      "data-cover-never": "node_modules"
+      "data-cover-never": [ "node_modules", "lib/third/" ]
     }
   },
   "repository": {
@@ -27,7 +27,8 @@
     "lodash": "*",
     "moment": "*",
     "q": "*",
-    "scrypt": "*"
+    "scrypt": "*",
+    "sugar": "*"
   },
   "devDependencies": {
     "blanket": "*",
