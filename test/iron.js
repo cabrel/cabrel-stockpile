@@ -53,7 +53,7 @@ describe('iron', function() {
 
       it('should resolve to a string', function(done) {
         iron.seal({ a: 1 }, 'test123').done(function(sealed) {
-          expect(sealed).to.contain('Fe26.1');
+          expect(sealed).to.contain('Fe26.2');
           done();
         }, function(error) {
           expect(error).to.be(null);
