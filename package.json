@@ -1,6 +1,6 @@
 {
   "name": "cabrel-stockpile",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A set of utility functions for every day use",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "async": "*",
     "bcrypt": "*",
     "hapi": "1.x.x",
-    "iron": "0.3.x",
+    "iron": "*",
     "lodash": "*",
     "moment": "*",
     "q": "*",
