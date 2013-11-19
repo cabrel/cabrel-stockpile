@@ -10,6 +10,10 @@ describe('conversions', function() {
         // Monday November 18, 2013 16:23:08 EST
         // Unix timestamp (seconds): 1384809788
         var result = conversions.ldap.fromAdTimestamp(130292833877453899);
+
+        // set the zone to be EST, only for testing
+        result.zone('-05:00');
+
         expect(result).to.be.an(Object);
         expect(result._d).to.be.a(Date);
         expect(result.month()).to.be(10); // 0-index 0-11
@@ -24,6 +28,10 @@ describe('conversions', function() {
         // Monday November 18, 2013 16:23:08 EST
         // Unix timestamp (seconds): 1384809788
         var result = conversions.ldap.fromAdTimestamp('130292833877453899');
+
+        // set the zone to be EST, only for testing
+        result.zone('-05:00');
+
         expect(result).to.be.an(Object);
         expect(result._d).to.be.a(Date);
         expect(result.month()).to.be(10); // 0-index 0-11
