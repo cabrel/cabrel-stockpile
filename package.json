@@ -1,6 +1,6 @@
 {
   "name": "cabrel-stockpile",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "description": "A set of utility functions for every day use",
   "main": "index.js",
   "scripts": {
@@ -21,13 +21,10 @@
   },
   "dependencies": {
     "async": "*",
-    "bcrypt": "*",
     "hapi": "1.x.x",
-    "iron": "*",
     "lodash": "*",
     "moment": "*",
     "q": "*",
-    "scrypt": "*",
     "sugar": "*"
   },
   "devDependencies": {
