@@ -1,3 +1,5 @@
+/* global define: false, $: false, _: false, describe: false, assert: false, it: false, beforeEach: false, before: false, after: false */
+
 var expect = require('expect.js'),
     stockpile = require('../'),
     conversions = stockpile.conversions;
